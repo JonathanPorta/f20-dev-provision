@@ -1,0 +1,17 @@
+---
+- name: Yum | Update system.
+  yum: name=* state=latest
+
+- name: Yum | Install dependencies for building.
+  yum: name={{ item }}
+  with_items:
+     - python-devel
+     - gcc-c++
+     - make
+     - openssl-devel
+
+- name: Yum | Install user tools.
+  yum: name={{ item }}
+  with_items:
+     - vim
+     - git

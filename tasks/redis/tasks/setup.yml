@@ -1,0 +1,32 @@
+---
+# File: setup.yml
+# Part: redis
+#
+# Description: Installs redis from source
+#
+# Parameters - Must be definied in playbook:
+#   - redis_path = The redis path
+#   - redis_prefix = The prefix
+#   - redis_tarball = The tarball filename at redis.io
+#   - redis_version = The wanted version of redis to be installed
+
+- name: Redis | Get version of Redis if installed
+  shell: "{{ redis_path }}/bin/redis-server -v | cut -d ' ' -f 3 | sed 's/v=//'"
+  register: installed
+  ignore_errors: True
+
+- name: Redis | Fetching Redis source
+  action: get_url url=http://download.redis.io/releases/{{ redis_tarball }} dest=/tmp/
+  when: installed.stdout != redis_version
+
+- name: Redis | Unpack Redis tarball
+  command: tar zxf {{ redis_tarball }} chdir=/tmp
+  when: installed.stdout != redis_version
+
+- name: Redis | Make
+  shell: /usr/bin/make chdir=/tmp/{{ redis_prefix }}/
+  when: installed.stdout != redis_version
+
+- name: Redis | Make install
+  shell: /usr/bin/make PREFIX={{ redis_path }} install chdir=/tmp/{{ redis_prefix }}/
+  when: installed.stdout != redis_version
