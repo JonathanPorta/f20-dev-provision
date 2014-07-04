@@ -2,8 +2,8 @@
 # We pull in the admin username and keyfile from environment.yml
 - hosts: all
   sudo: True
-  vars_files:
-   - environment.yml
+  # vars_files:
+  #  - environment.yml
   tasks:
     - include: tasks/sudoers.yml
     - include: tasks/user.yml user={{ admin_username }} keypath={{ admin_key_path }} group="wheel"
