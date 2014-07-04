@@ -6,3 +6,6 @@
   authorized_key: user={{ user }} key="{{ item }}"
   with_file:
   - "{{ keypath }}"
+
+- name: Users | Revoking vagrant public key.
+  shell: rm -f /home/vagrant/.ssh/authorized_keys
