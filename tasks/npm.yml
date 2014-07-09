@@ -4,5 +4,6 @@
   with_items:
     - coffee-script
     - grunt
+    - grunt-cli
     - bower
     - node-inspector
