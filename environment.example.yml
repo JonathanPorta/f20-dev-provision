@@ -1,4 +1,0 @@
----
-# For now, just the username and public key file for the 'admin' user.
-admin_username: "username"
-admin_key_path: "/home/username/.ssh/id_rsa.pub"
