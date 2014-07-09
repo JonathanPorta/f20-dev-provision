@@ -6,9 +6,11 @@
   yum: name={{ item }}
   with_items:
      - python-devel
+     - gcc
      - gcc-c++
      - make
      - openssl-devel
+     - freetype-devel fontconfig-devel
 
 - name: Yum | Install user tools.
   yum: name={{ item }}
