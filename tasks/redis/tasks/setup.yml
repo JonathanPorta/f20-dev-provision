@@ -30,3 +30,6 @@
 - name: Redis | Make install
   shell: /usr/bin/make PREFIX={{ redis_path }} install chdir=/tmp/{{ redis_prefix }}/
   when: installed.stdout != redis_version
+
+- name: Redis | Cleanup
+  shell: rm /tmp/{{ redis_tarball }} ; rm -rf /tmp/{{ redis_prefix }}
