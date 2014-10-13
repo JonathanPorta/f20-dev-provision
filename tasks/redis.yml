@@ -1,8 +1,0 @@
----
-- vars:
-    redis_version: "{{ version }}"
-    redis_prefix: "redis-{{ redis_version }}"
-    redis_tarball: "{{ redis_prefix }}.tar.gz"
-    redis_path: "/usr/local"
-
-  include: "redis/tasks/setup.yml"

@@ -6,6 +6,3 @@
     - include: tasks/sudoers.yml
     - include: tasks/user.yml user={{ admin_username }} keypath={{ admin_key_path }} group="wheel"
     - include: tasks/yum.yml
-    - include: tasks/nodejs.yml version="0.10.29" node_installation="/usr/local"
-    - include: tasks/redis.yml version="2.8.12"
-    - include: tasks/npm.yml node_installation="/usr/local"

@@ -1,9 +1,0 @@
----
-- name: NPM | Install global packages.
-  npm: name={{ item }} global='yes' executable={{ node_installation }}/bin/npm
-  with_items:
-    - coffee-script
-    - grunt
-    - grunt-cli
-    - bower
-    - node-inspector
