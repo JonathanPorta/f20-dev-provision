@@ -1,10 +1,11 @@
-# Fedora 20 Base Devel Provisioning via Ansible
+## Fedora 20 Provisioning via Ansible
 
 An Ansible playbook for provisioning a Vagrant box.
 
 This was written to be used as the provisioning playbook for [f20-dev-vagrant](https://github.com/JonathanPorta/f20-dev-vagrant).
 
 Things this playbook does for you:
+
 1. Ensure that your user account exists.
 2. Ensure that your public key is in `authorized_keys`.
 3. Ensure that your user is in the `wheel` group.
